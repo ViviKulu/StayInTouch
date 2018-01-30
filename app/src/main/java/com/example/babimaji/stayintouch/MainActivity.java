@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Database columns: name, picture, login, mantra, email, linkedin, github
+
     private static final String SHARED_PREFS_KEY = "sharedPrefsTesting";
     private SharedPreferences login;
     private ImageView applogo;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         regBtn = findViewById(R.id.registerBtn);
         login = getApplicationContext().getSharedPreferences(SHARED_PREFS_KEY, MODE_PRIVATE);
 
-        if(login.getBoolean("isChecked", false)){
+        if (login.getBoolean("isChecked", false)) {
             userName.setText(login.getString("username", null));
             userPassword.setText(login.getString("password", null));
             rememberMe.setChecked(login.getBoolean("isChecked", false));
@@ -49,22 +51,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = login.edit();
-                if(rememberMe.isChecked()){
+                if (rememberMe.isChecked()) {
                     editor.putString("username", userName.getText().toString());
                     editor.putString("password", userPassword.getText().toString());
                     editor.putBoolean("isChecked", rememberMe.isChecked());
-                }else{
+                    editor.commit();
+                } else {
                     editor.putBoolean("isChecked", rememberMe.isChecked());
                     editor.commit();
                 }
 
                 String checkUser = "user" + userName.getText().toString();
                 String checkUserPassword = "password" + userPassword.getText().toString();
-                if(userName.getText().toString().equalsIgnoreCase(login.getString(checkUser, null))
-                        && userPassword.getText().toString().equals(login.getString(checkUserPassword, null))){
-                    Intent intentToProfileActivity = new Intent(MainActivity.this, PreProfileActivity.class);
-                    intentToProfileActivity.putExtra("userName", userName.getText().toString());
-                    startActivity(intentToProfileActivity);
+                if (userName.getText().toString().equalsIgnoreCase(login.getString(checkUser, null))
+                        && userPassword.getText().toString().equals(login.getString(checkUserPassword, null))) {
+                    Intent intent = new Intent(MainActivity.this, PreProfileActivity.class);
+                    intent.putExtra("currentUser", userName.getText().toString());
+                    startActivity(intent);
                 }
             }
         });
