@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SecondActivity" />
+        <activity android:name=".PreProfileActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".FellowsFeedActivity"></activity>
     </application>
 
 </manifest>
