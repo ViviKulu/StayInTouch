@@ -23,16 +23,19 @@ public class PreProfileActivity extends AppCompatActivity {
         userName = findViewById(R.id.profile_welcome_tv);
         mantra = findViewById(R.id.user_mantra);
 
-        Intent intentToProfileActivity = getIntent();
-        String user = intentToProfileActivity.getStringExtra("userName");
+        Intent intentToPreProfileActivity = getIntent();
+        String user = intentToPreProfileActivity.getStringExtra("userName");
         userName.setText("Welcome: " + user);
 
         postBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intoFellowsFeed = new Intent(PreProfileActivity.this, FellowsFeedActivity.class);
+                intoFellowsFeed.putExtra("mantra", mantra.getText().toString());
+                startActivity(intoFellowsFeed);
             }
         });
+
 
     }
 }
