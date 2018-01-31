@@ -27,14 +27,14 @@ public class PreProfileActivity extends AppCompatActivity {
         String user = intentToPreProfileActivity.getStringExtra("userName");
         userName.setText("Welcome: " + user);
 
-        postBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intoFellowsFeed = new Intent(PreProfileActivity.this, FellowsFeedActivity.class);
-                intoFellowsFeed.putExtra("mantra", mantra.getText().toString());
-                startActivity(intoFellowsFeed);
-            }
-        });
+//        postBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intoFellowsFeed = new Intent(PreProfileActivity.this, FellowsFeedActivity.class);
+//                intoFellowsFeed.putExtra("mantra", mantra.getText().toString());
+//                startActivity(intoFellowsFeed);
+//            }
+//        });
 
 
     }
