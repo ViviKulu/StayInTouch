@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.babimaji.stayintouch.backend.Networking;
 import com.example.babimaji.stayintouch.model.Fellow;
@@ -24,6 +25,8 @@ public class FellowsFeedActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private String fellowsResponse;
     private ImageView picture;
+    private TextView email;
+    private TextView mantra;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,9 @@ public class FellowsFeedActivity extends AppCompatActivity {
         getFellowsApi();
 
         recyclerView = findViewById(R.id.fellowsFeedRV);
+        picture = findViewById(R.id.picture);
+        email = findViewById(R.id.email);
+        mantra = findViewById(R.id.mantra);
     }
 
 
@@ -42,7 +48,6 @@ public class FellowsFeedActivity extends AppCompatActivity {
 
         Networking fellowsNetworking = retrofit.create(Networking.class);
 
-        final Call<List<Fellow>> fellows = fellowsNetworking.getFellows();
         final Call<List<Fellow>> fellowsCall = fellowsNetworking.getFellows();
         fellowsCall.enqueue(new Callback<List<Fellow>>() {
             @Override
@@ -52,7 +57,6 @@ public class FellowsFeedActivity extends AppCompatActivity {
                 Picasso.with(getApplicationContext())
                         .load(response.body().toString())
                         .into(picture);
-
             }
 
             @Override
