@@ -24,7 +24,7 @@ public class PreProfileActivity extends AppCompatActivity {
         mantra = findViewById(R.id.user_mantra);
 
         Intent intentToPreProfileActivity = getIntent();
-        String user = intentToPreProfileActivity.getStringExtra("userName");
+        String user = intentToPreProfileActivity.getStringExtra("currentUser");
         userName.setText("Welcome: " + user);
 
 //        postBtn.setOnClickListener(new View.OnClickListener() {
