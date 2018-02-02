@@ -1,8 +1,12 @@
 package com.example.babimaji.stayintouch;
 
+import android.arch.persistence.room.Room;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 
@@ -12,12 +16,16 @@ import com.google.gson.Gson;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import backend.AppDatabase;
+import controller.FellowsAdapter;
+
 public class FellowsActivity extends AppCompatActivity {
 
-
+    private AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +38,41 @@ public class FellowsActivity extends AppCompatActivity {
 
         Gson gson = new Gson();
         Fellow[] fellows = gson.fromJson(jsonString, Fellow[].class);
-        List<Fellow> asList = Arrays.asList(fellows);
-        for(Fellow fellow : asList) {
+
+        List<Fellow> fellowsList = Arrays.asList(fellows);
+        for(Fellow fellow : fellowsList) {
             Log.d("name", fellow.getName());
             Log.d("pict", fellow.getPicture());
+            Log.d("linkedin", fellow.getLinkedin());
         }
 
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.fellows_RV);
+        FellowsAdapter fellowsAdapter = new FellowsAdapter(fellowsList);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), GridLayoutManager.VERTICAL);
+        recyclerView.setAdapter(fellowsAdapter);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
+
+         db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "Fellows")
+                 .fallbackToDestructiveMigration()
+                 .build();
+
+        getDataFromDB(fellows);
+
+    }
+
+    public void getDataFromDB(final Fellow[] fellows) {
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void ... voids) {
+                    db.fellowDao().addAll(fellows);
+                    Log.d("database created", db.fellowDao().getFellow(2).getName());
+                    return null;
+                }
+
+        }.execute();
     }
 
     private String readJsonFile(InputStream inputStream) {
