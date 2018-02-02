@@ -42,27 +42,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="65dp">
-
-        <Button
-            android:id="@+id/postToFeed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:text="Post to feed" />
-
-        <Button
-            android:id="@+id/goToProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
-            android:text="Go to profile" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/update_message"
         android:layout_width="match_parent"
@@ -70,5 +49,13 @@
         android:layout_marginTop="25dp"
         android:textSize="16dp"
         android:text="You can update your profile at any time, don't worry if your avatar is lame for now, We know you're beautiful!"/>
+
+    <Button
+        android:id="@+id/goToProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="135dp"
+        android:text="Go to profile" />
 
 </LinearLayout>

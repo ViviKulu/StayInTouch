@@ -1,6 +1,8 @@
 package com.example.babimaji.stayintouch;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +29,6 @@ public class PreProfileActivity extends AppCompatActivity {
         userName = findViewById(R.id.profile_welcome_tv);
         mantra = findViewById(R.id.user_mantra);
         mantra_tv = findViewById(R.id.mantra_tv);
-        postBtn = findViewById(R.id.postToFeed);
         profileBtn = findViewById(R.id.goToProfile);
         preferredContact_tv = findViewById(R.id.preferredContact_tv);
         preferredContact_ed = findViewById(R.id.preferredContact_ed);
@@ -38,15 +39,22 @@ public class PreProfileActivity extends AppCompatActivity {
         String user = intentToPreProfileActivity.getStringExtra("currentUser");
         userName.setText("Welcome: " + user);
 
-        postBtn.setOnClickListener(new View.OnClickListener() {
+        profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intoFellowsFeed = new Intent(PreProfileActivity.this, FellowsFeedActivity.class);
-                intoFellowsFeed.putExtra("mantra", mantra.getText().toString());
-                startActivity(intoFellowsFeed);
+                //Instead of intent set up fragment here for the profile!
+
+                ProfileFrag profileFrag = new ProfileFrag();
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.fragment_container, profileFrag);
+                transaction.commit();
+
+//                Intent intoProfile = new Intent(PreProfileActivity.this, ProfileFrag.class);
+//                intoProfile.putExtra("mantra", mantra.getText().toString());
+//                intoProfile.putExtra("contact", preferredContact_ed.getText().toString());
+//                startActivity(intoProfile);
             }
         });
-
-
     }
 }
