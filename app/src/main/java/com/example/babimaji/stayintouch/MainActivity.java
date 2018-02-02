@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     //Database columns: name, picture, login, mantra, email, linkedin, github
 
     private static final String SHARED_PREFS_KEY = "sharedPrefsTesting";
+
     private SharedPreferences login;
     private ImageView applogo;
     private EditText userName;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 String checkUserPassword = "password" + userPassword.getText().toString();
                 if (userName.getText().toString().equalsIgnoreCase(login.getString(checkUser, null))
                         && userPassword.getText().toString().equals(login.getString(checkUserPassword, null))) {
-                    Intent intent = new Intent(MainActivity.this, PreProfileActivity.class);
+                    Intent intent = new Intent(MainActivity.this, FellowsActivity.class);
                     intent.putExtra("currentUser", userName.getText().toString());
                     startActivity(intent);
                 }
