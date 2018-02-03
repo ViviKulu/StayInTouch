@@ -1,7 +1,5 @@
-package view;
+package com.example.babimaji.stayintouch.view;
 
-import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,11 +8,6 @@ import android.widget.TextView;
 import com.example.babimaji.stayintouch.R;
 import com.example.babimaji.stayintouch.model.Fellow;
 import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * Created by olgakoleda on 2/2/18.

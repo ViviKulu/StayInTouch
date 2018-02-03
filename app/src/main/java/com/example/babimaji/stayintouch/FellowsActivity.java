@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import backend.AppDatabase;
-import controller.FellowsAdapter;
+import com.example.babimaji.stayintouch.backend.AppDatabase;
+import com.example.babimaji.stayintouch.controller.FellowsAdapter;
 
 public class FellowsActivity extends AppCompatActivity {
 
