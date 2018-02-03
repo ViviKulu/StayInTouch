@@ -1,4 +1,4 @@
-package backend;
+package com.example.babimaji.stayintouch.backend;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
