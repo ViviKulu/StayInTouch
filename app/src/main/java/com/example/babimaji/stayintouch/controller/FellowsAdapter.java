@@ -27,7 +27,6 @@ public class FellowsAdapter extends RecyclerView.Adapter<FellowsViewHolder>{
 
     @Override
     public void onBindViewHolder(FellowsViewHolder holder, int position) {
-
         Fellow fellow = fellowList.get(position);
         holder.onBind(fellow);
     }
