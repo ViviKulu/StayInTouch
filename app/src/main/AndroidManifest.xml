@@ -19,9 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
-        <activity android:name=".PreProfileActivity" />
+        <activity android:name=".FellowsActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".FellowsFeedActivity"></activity>
     </application>
 
 </manifest>
