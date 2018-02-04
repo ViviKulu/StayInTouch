@@ -6,10 +6,6 @@ import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by BabiMaji on 1/30/18.
- */
-
 @Entity
 public class Fellow implements Parcelable {
 
@@ -24,6 +20,17 @@ public class Fellow implements Parcelable {
 
     @ColumnInfo(name = "linkedin")
     private String linkedin;
+
+    @ColumnInfo(name = "isFavorite")
+    private boolean isFavorite;
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
 
     public int getId() {
         return id;
@@ -58,6 +65,9 @@ public class Fellow implements Parcelable {
     }
 
 
+    public Fellow() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -69,9 +79,7 @@ public class Fellow implements Parcelable {
         dest.writeString(this.name);
         dest.writeString(this.picture);
         dest.writeString(this.linkedin);
-    }
-
-    public Fellow() {
+        dest.writeByte(this.isFavorite ? (byte) 1 : (byte) 0);
     }
 
     protected Fellow(Parcel in) {
@@ -79,6 +87,7 @@ public class Fellow implements Parcelable {
         this.name = in.readString();
         this.picture = in.readString();
         this.linkedin = in.readString();
+        this.isFavorite = in.readByte() != 0;
     }
 
     public static final Creator<Fellow> CREATOR = new Creator<Fellow>() {

@@ -13,8 +13,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Database columns: name, picture, login, mantra, email, linkedin, github
-
     private static final String SHARED_PREFS_KEY = "sharedPrefsTesting";
 
     private SharedPreferences login;

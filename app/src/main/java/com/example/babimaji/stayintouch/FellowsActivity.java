@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-
 import fragments.FavouriteFragment;
 import fragments.HomeFragment;
 import fragments.UserFragment;
