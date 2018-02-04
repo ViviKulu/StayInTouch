@@ -18,9 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity" />
         <activity android:name=".FellowsActivity" />
         <activity android:name=".RegisterActivity" />
+        <service android:name=".MyIntentService"/>
     </application>
 
 </manifest>

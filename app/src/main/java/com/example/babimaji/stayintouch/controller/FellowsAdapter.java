@@ -7,16 +7,16 @@ import android.view.ViewGroup;
 import com.example.babimaji.stayintouch.R;
 import com.example.babimaji.stayintouch.model.Fellow;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.babimaji.stayintouch.view.FellowsViewHolder;
 
 public class FellowsAdapter extends RecyclerView.Adapter<FellowsViewHolder>{
 
-    private List<Fellow> fellowList;
+    private List<Fellow> fellowList = new ArrayList<>();
 
-    public FellowsAdapter(List<Fellow> fellowList) {
-        this.fellowList = fellowList;
+    public FellowsAdapter() {
     }
 
     @Override
@@ -34,5 +34,10 @@ public class FellowsAdapter extends RecyclerView.Adapter<FellowsViewHolder>{
     @Override
     public int getItemCount() {
         return fellowList.size();
+    }
+
+    public void setData(List<Fellow> fellowList) {
+        this.fellowList = fellowList;
+
     }
 }
