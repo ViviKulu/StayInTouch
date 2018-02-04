@@ -9,10 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ProfileFrag extends Fragment {
 
     private ImageView picture;
@@ -30,6 +26,7 @@ public class ProfileFrag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_profile, container, false);
         picture = rootview.findViewById(R.id.picture);

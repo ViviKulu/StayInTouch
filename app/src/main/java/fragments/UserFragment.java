@@ -9,9 +9,6 @@ import android.view.ViewGroup;
 
 import com.example.babimaji.stayintouch.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class UserFragment extends Fragment {
 
     public static UserFragment newInstance() {

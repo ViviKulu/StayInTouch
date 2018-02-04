@@ -8,7 +8,10 @@ import android.arch.persistence.room.Update;
 
 import com.example.babimaji.stayintouch.model.Fellow;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
 @Dao
 public interface FellowDao {
@@ -19,14 +22,15 @@ public interface FellowDao {
     @Query("SELECT * FROM Fellow WHERE id =:id")
     Fellow getFellow(int id);
 
-    @Insert
-    void addAll(Fellow ...fellows);
+    @Query("SELECT * FROM Fellow WHERE isFavorite =:isFavorite")
+    List<Fellow> getFavoriteFellows(boolean isFavorite);
 
     @Insert
-    void insertFellow(Fellow fellow);
+    void addAll(ArrayList<Fellow> fellows);
 
-    @Update
-    int updateFellow(Fellow fellow);
+    //@Update does not work for some reason
+    @Insert
+    void isFavorite(Fellow fellow);
 
     @Delete
     int deleteFellow(Fellow fellow);
