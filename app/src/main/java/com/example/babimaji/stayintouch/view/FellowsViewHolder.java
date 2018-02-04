@@ -1,14 +1,14 @@
-package view;
+package com.example.babimaji.stayintouch.view;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.ImageView;
+import android.view.View;
 import android.widget.TextView;
+
 
 import com.example.babimaji.stayintouch.R;
 import com.example.babimaji.stayintouch.model.Fellow;
 import com.squareup.picasso.Picasso;
-
 
 public class FellowsViewHolder extends RecyclerView.ViewHolder {
 

@@ -4,9 +4,11 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
+
 import com.example.babimaji.stayintouch.R;
 import com.example.babimaji.stayintouch.model.Fellow;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -21,23 +23,28 @@ import fragments.HomeFragment;
 
 public class MyIntentService extends IntentService {
 
+
     public MyIntentService() {
         super("MyIntentService");
     }
 
     @Override
-    protected void onHandleIntent(@Nullable Intent intent) {
+    protected void onHandleIntent(@Nullable Intent intent) throws JsonSyntaxException {
 
         InputStream inputStream = getResources().openRawResource(R.raw.fellows);
+
         String jsonString = readJsonFile(inputStream);
 
         Gson gson = new Gson();
+
         Fellow[] fellows = gson.fromJson(jsonString, Fellow[].class);
+
         ArrayList<Fellow> arrList = new ArrayList<>();
-        for(Fellow fellow: fellows) {
+
+        for (Fellow fellow : fellows) {
             arrList.add(fellow);
 
-        };
+        }
 
         Intent broadcastIntent = new Intent();
         broadcastIntent.setAction(

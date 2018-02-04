@@ -17,15 +17,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.babimaji.stayintouch.FellowsActivity;
-import com.example.babimaji.stayintouch.MainActivity;
 import com.example.babimaji.stayintouch.MyIntentService;
 import com.example.babimaji.stayintouch.R;
+import com.example.babimaji.stayintouch.backend.AppDatabase;
+import com.example.babimaji.stayintouch.controller.FellowsAdapter;
 import com.example.babimaji.stayintouch.model.Fellow;
 import java.util.ArrayList;
-import backend.AppDatabase;
 import constants.Constants;
-import controller.FellowsAdapter;
 
 
 public class HomeFragment extends Fragment {

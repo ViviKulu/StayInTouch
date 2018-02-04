@@ -1,4 +1,4 @@
-package controller;
+package com.example.babimaji.stayintouch.controller;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import com.example.babimaji.stayintouch.model.Fellow;
 import java.util.ArrayList;
 import java.util.List;
 
-import view.FellowsViewHolder;
+import com.example.babimaji.stayintouch.view.FellowsViewHolder;
 
 public class FellowsAdapter extends RecyclerView.Adapter<FellowsViewHolder>{
 
@@ -27,7 +27,6 @@ public class FellowsAdapter extends RecyclerView.Adapter<FellowsViewHolder>{
 
     @Override
     public void onBindViewHolder(FellowsViewHolder holder, int position) {
-
         Fellow fellow = fellowList.get(position);
         holder.onBind(fellow);
     }
